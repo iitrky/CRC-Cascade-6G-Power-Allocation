@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "CRC-Cascade: Conformal Risk Controlled Cascades for Neural Power Allocation in Dense 6G Subnetworks"
+type: software
+license: MIT
+repository-code: "https://github.com/iitrky/CRC-Cascade-6G-Power-Allocation"
+version: 1.0.0
+date-released: 2026-11-14
+keywords: [6G, subnetworks, power allocation, conformal risk control, selective prediction, attention networks]
+authors:
+  - family-names: Dalton
+    given-names: G. Arul
+    affiliation: "Department of Computer Science and Engineering, Saveetha Engineering College, Chennai, India"
+    orcid: "https://orcid.org/0000-0002-5981-7176"
+  - family-names: Mani
+    given-names: S. V. J.
+    affiliation: "Department of Computer Science Engineering and Cyber Security, Saveetha Engineering College, Chennai, India"
+    orcid: "https://orcid.org/0009-0008-0957-6301"
+preferred-citation:
+  type: article
+  title: "Conformal Risk Controlled Cascades for Neural Power Allocation in Dense 6G Subnetworks"
+  authors:
+    - family-names: Dalton
+      given-names: G. Arul
+    - family-names: Mani
+      given-names: S. V. J.
+  year: 2026
+  status: submitted
