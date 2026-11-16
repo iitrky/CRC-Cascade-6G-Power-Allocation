@@ -3,6 +3,7 @@
 [![tests](https://github.com/iitrky/CRC-Cascade-6G-Power-Allocation/actions/workflows/tests.yml/badge.svg)](https://github.com/iitrky/CRC-Cascade-6G-Power-Allocation/actions/workflows/tests.yml)
 ![python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24271050.svg)](https://doi.org/10.5281/zenodo.24271050)
 
 This is the official implementation of the paper
 
@@ -279,7 +280,7 @@ GitHub Actions runs both tests on every push (`.github/workflows/tests.yml`).
 
 ## 11. Citation
 
-If you use this code, please cite the paper. The entry will be updated with volume, pages and DOI after publication.
+If you use this code, please cite the paper and the archived software (Zenodo DOI [10.5281/zenodo.24271050](https://doi.org/10.5281/zenodo.24271050)). The entry will be updated with volume, pages and DOI after publication.
 
 ```bibtex
 @article{dalton2026crccascade,
@@ -287,6 +288,16 @@ If you use this code, please cite the paper. The entry will be updated with volu
   title   = {Conformal Risk Controlled Cascades for Neural Power Allocation in Dense {6G} Subnetworks},
   journal = {Manuscript submitted for publication},
   year    = {2026}
+}
+
+@software{dalton2026crccascade_code,
+  author    = {Dalton, G. Arul and Mani, S. V. J.},
+  title     = {{CRC-Cascade}: Conformal Risk Controlled Cascades for Neural Power Allocation in Dense {6G} Subnetworks},
+  version   = {1.0.0},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24271050},
+  url       = {https://doi.org/10.5281/zenodo.24271050}
 }
 ```
 

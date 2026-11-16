@@ -5,6 +5,11 @@ type: software
 license: MIT
 repository-code: "https://github.com/iitrky/CRC-Cascade-6G-Power-Allocation"
 version: 1.0.0
+doi: "10.5281/zenodo.24271050"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24271050"
+    description: "Zenodo archive of the software"
 date-released: 2026-11-14
 keywords: [6G, subnetworks, power allocation, conformal risk control, selective prediction, attention networks]
 authors:
