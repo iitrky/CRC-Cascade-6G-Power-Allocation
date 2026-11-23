@@ -23,11 +23,12 @@ authors:
     orcid: "https://orcid.org/0009-0008-0957-6301"
 preferred-citation:
   type: article
-  title: "Conformal Risk Controlled Cascades for Neural Power Allocation in Dense 6G Subnetworks"
+  title: "Conformal Risk Controlled Cascades for Neural Power Allocation in Dense 6G Mobile Subnetworks"
   authors:
     - family-names: Dalton
       given-names: G. Arul
     - family-names: Mani
       given-names: S. V. J.
   year: 2026
+  journal: "Mobile Networks and Applications"
   status: submitted

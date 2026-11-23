@@ -1,0 +1,38 @@
+{
+  "title": "CRC-Cascade: Conformal Risk Controlled Cascades for Neural Power Allocation in Dense 6G Mobile Subnetworks",
+  "upload_type": "software",
+  "version": "1.1.0",
+  "description": "<p>Reference implementation of the paper <em>Conformal Risk Controlled Cascades for Neural Power Allocation in Dense 6G Mobile Subnetworks</em> (G. Arul Dalton and S. V. J. Mani, 2026).</p><p>The repository contains a 3GPP TR 38.901 indoor-factory simulator with imperfect CSI, the interference-aware attention network (IAAN) allocator and the MLP and MPGNN baselines, a physics-informed risk scorer, conformal risk control, Learn-then-Test and audit-driven online calibration, the three-stage certified optimizer cascade with group-wise (Mondrian) calibration, the scripts that reproduce every table and figure of the paper, the stored result files, and tests. It is written in pure NumPy and needs no GPU.</p>",
+  "creators": [
+    {
+      "name": "Dalton, G. Arul",
+      "affiliation": "Department of Computer Science and Engineering, Saveetha Engineering College, Chennai, India",
+      "orcid": "0000-0002-5981-7176"
+    },
+    {
+      "name": "Mani, S. V. J.",
+      "affiliation": "Department of Computer Science Engineering and Cyber Security, Saveetha Engineering College, Chennai, India",
+      "orcid": "0009-0008-0957-6301"
+    }
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": [
+    "6G",
+    "in-X subnetworks",
+    "power allocation",
+    "conformal risk control",
+    "selective prediction",
+    "attention networks",
+    "WMMSE",
+    "wireless communications"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/iitrky/CRC-Cascade-6G-Power-Allocation",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "language": "eng"
+}

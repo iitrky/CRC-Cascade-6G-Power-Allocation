@@ -15,7 +15,7 @@ g = [100 * x for x in R['curves']['defer_grid']]
 fig, ax = plt.subplots(figsize=(3.5, 2.6))
 style = {'CSPA learned scorer (full)': ('C0', '-', 2.0, 'CSPA (proposed)'),
          'Physics features only': ('0.45', '-', 1.0, 'Physics only'),
-         'SI-DNN spread heuristic [Lee 2024]': ('0.55', '--', 1.0, 'SI-DNN heuristic [19]'),
+         'SI-DNN spread heuristic [Lee 2024]': ('0.55', '--', 1.0, 'SI-DNN heuristic (Lee et al.)'),
          'Ensemble features only': ('0.65', '-.', 1.0, 'Ensemble only'),
          'Random': ('0.75', ':', 1.0, 'Random'),
          'Oracle': ('k', ':', 1.0, 'Oracle')}
@@ -27,7 +27,7 @@ ax.set_xlabel('Cycles deferred to WMMSE [%]')
 ax.set_ylabel('Expected regret [%]')
 ax.set_xlim(0, 80); ax.set_ylim(0, 0.56)
 ax.legend(frameon=False, fontsize=7)
-fig.tight_layout(); fig.savefig(f'{OUT}/figs/fig3_risk_deferral.png', dpi=300); plt.close(fig)
+fig.tight_layout(); fig.savefig(f'{OUT}/figs/figS1_risk_deferral.png', dpi=300); plt.close(fig)
 
 # Fig. 4: OOD offline vs online
 lab = {'csi_err_0.3': 'CSI error 0.3', 'sparser_K10': 'K = 10', 'heavy_shadow': 'Shadowing 6/10 dB',
@@ -41,7 +41,7 @@ for i, (k, n) in enumerate(lab.items()):
 ax.axvline(3.0, color='0.3', ls='--', lw=0.8)
 ax.set_yticks(range(len(lab))); ax.set_yticklabels(list(lab.values())); ax.invert_yaxis()
 ax.set_xlabel(r'Expected regret [$\times 10^{-3}$]'); ax.set_xlim(0, 5.5)
-fig.tight_layout(); fig.savefig(f'{OUT}/figs/fig4_ood_online.png', dpi=300); plt.close(fig)
+fig.tight_layout(); fig.savefig(f'{OUT}/figs/figS2_ood_online.png', dpi=300); plt.close(fig)
 
 # Fig. 5: validity of calibration
 al = sorted(R['validity']['CRC'], key=float)
@@ -53,7 +53,7 @@ for m, c, mk in [('CRC', 'C0', 'o'), ('LTT-HP', 'C2', 's'), ('Naive', '0.5', '^'
 ax.plot([0.5, 5.5], [0.5, 5.5], 'k--', lw=0.8, label=r'$y=\alpha$')
 ax.set_xlabel(r'Budget $\alpha$ [$\times 10^{-3}$]'); ax.set_ylabel(r'Realized regret [$\times 10^{-3}$]')
 ax.legend(frameon=False, fontsize=7)
-fig.tight_layout(); fig.savefig(f'{OUT}/figs/figS1_validity.png', dpi=300); plt.close(fig)
+fig.tight_layout(); fig.savefig(f'{OUT}/figs/figS3_validity.png', dpi=300); plt.close(fig)
 print('figures written to', f'{OUT}/figs')
 
 # Fig. 6: certified cascade vs single fallback (WMMSE iterations per cycle)
@@ -66,5 +66,5 @@ if os.path.exists(f'{OUT}/results_cascade.json'):
     ax.axhline(C['warm_iters'], color='0.3', ls='--', lw=0.8, label='Always warm start (no certificate)')
     ax.set_xlabel(r'Regret budget $\alpha$ [%]'); ax.set_ylabel('WMMSE iterations per cycle')
     ax.legend(frameon=False, fontsize=7)
-    fig.tight_layout(); fig.savefig(f'{OUT}/figs/fig5_cascade_cost.png', dpi=300); plt.close(fig)
+    fig.tight_layout(); fig.savefig(f'{OUT}/figs/fig3_cascade_cost.png', dpi=300); plt.close(fig)
     print('cascade figure written')

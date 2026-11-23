@@ -1,4 +1,4 @@
-# CRC-Cascade: Conformal Risk Controlled Cascades for Neural Power Allocation in Dense 6G Subnetworks
+# CRC-Cascade: Conformal Risk Controlled Cascades for Neural Power Allocation in Dense 6G Mobile Subnetworks
 
 [![tests](https://github.com/iitrky/CRC-Cascade-6G-Power-Allocation/actions/workflows/tests.yml/badge.svg)](https://github.com/iitrky/CRC-Cascade-6G-Power-Allocation/actions/workflows/tests.yml)
 ![python](https://img.shields.io/badge/python-3.10%2B-blue)
@@ -7,7 +7,7 @@
 
 This is the official implementation of the paper
 
-> G. Arul Dalton and S. V. J. Mani, *Conformal Risk Controlled Cascades for Neural Power Allocation in Dense 6G Subnetworks*, manuscript submitted to a Springer journal, 2026.
+> G. Arul Dalton and S. V. J. Mani, *Conformal Risk Controlled Cascades for Neural Power Allocation in Dense 6G Mobile Subnetworks*, manuscript submitted to *Mobile Networks and Applications* (Springer), 2026.
 
 Neural power allocators are fast but give no guarantee on any single decision. **CRC-Cascade** routes each channel realization through a three-stage optimizer cascade:
 
@@ -71,7 +71,7 @@ CRC-Cascade-6G-Power-Allocation/
 ├── results/
 │   ├── results.json           # every number reported in the paper (single-fallback experiments)
 │   ├── results_cascade.json   # every number reported in the paper (cascade experiments)
-│   └── figs/                  # figures exactly as they appear in the paper
+│   └── figs/                  # Fig. 3 and Figs. S1–S3 exactly as in the paper
 ├── docs/
 │   ├── IMPLEMENTATION.md      # equation-to-code map, data flow, design decisions
 │   └── figures/               # system-model diagrams (Figs 1-2 of the paper)
@@ -125,23 +125,25 @@ Set `CSPA_OUT=<folder>` to write somewhere other than `results/`. All random see
 
 **Where each paper item comes from**
 
+Main paper (Mobile Networks and Applications version) and its Supplementary Information (S):
+
 | Paper item | Content | Script | JSON key |
 | --- | --- | --- | --- |
+| Figs. 1–2 | System model: deployment view and processing view | drawn by the authors | `docs/figures/` |
 | Table 3 | Simulation parameters | `cspa/env.py` (`Scenario`) | – |
 | Table 4 | Sum SE and regret of all allocators | `evaluate.py`, `evaluate_cascade.py`, `cascade_online.py` | `baselines`, `cspa`, `fixed`, `cascade_bounded` |
-| Table 5 | Realized regret over 300 calibration/test resplits (CRC, LTT-EB, naive) | `evaluate.py` | `validity` |
-| Table 6 | Deferral needed to meet the budget; AURC by risk score | `evaluate.py` | `score_cmp` |
-| Table 7 | Ensemble size and selection rule ablation | `evaluate.py` | `ablation_ens` |
-| Table 8 | OOD deployment, offline vs online recalibration | `evaluate.py` | `ood`, `online_in_dist` |
-| Table 9 | Complexity and runtime per realization | `evaluate.py` | `complexity`, `runtime_ms_per_sample` |
-| Table 10 | Single fallback vs certified cascade | `evaluate_cascade.py` | `single`, `single_probe`, `cascade`, `cascade_validity` |
-| Table 11 | Per-regime regret: marginal vs group-wise CRC | `evaluate_cascade.py` | `conditional` |
-| Fig. 3 | Risk–deferral curves | `make_figures.py` | `curves` |
-| Fig. 4 | OOD regret, offline vs online | `make_figures.py` | `ood` |
-| Fig. 5 | Cascade cost vs α | `make_figures.py` | `cascade`, `single` |
-| Fig. S1 | Validity over resplits (supplementary) | `make_figures.py` | `validity` |
-| Sec. 7 text | Cascade under shift, offline and online | `evaluate_cascade.py`, `cascade_online.py` | `cascade_ood`, `cascade_ood_online` |
-| Figs 1–2 | System-model diagrams | drawn by the authors | `docs/figures/` |
+| Table 5 | Deferral needed to meet the budget; AURC by risk score | `evaluate.py` | `score_cmp` |
+| Table 6 | Deployment shifts, offline vs online recalibration | `evaluate.py` | `ood`, `online_in_dist` |
+| Table 7 | Single fallback vs certified cascade | `evaluate_cascade.py` | `single`, `single_probe`, `cascade`, `cascade_validity` |
+| Table 8 | Per-regime regret: marginal vs group-wise CRC | `evaluate_cascade.py` | `conditional` |
+| Fig. 3 | Cascade cost (WMMSE iterations per cycle) vs α | `make_figures.py` → `fig3_cascade_cost.png` | `cascade`, `single` |
+| Table S1 | Realized regret over 300 resplits (CRC, LTT-EB, naive) | `evaluate.py` | `validity` |
+| Table S2 | Ensemble size and selection rule ablation | `evaluate.py` | `ablation_ens` |
+| Table S3 | Complexity and runtime per realization | `evaluate.py` | `complexity`, `runtime_ms_per_sample` |
+| Fig. S1 | Risk–deferral curves | `make_figures.py` → `figS1_risk_deferral.png` | `curves` |
+| Fig. S2 | Regret under shifts, offline vs online | `make_figures.py` → `figS2_ood_online.png` | `ood` |
+| Fig. S3 | Validity over resplits | `make_figures.py` → `figS3_validity.png` | `validity` |
+| Sec. 6.5, S4 | Cascade under shift, offline and online | `evaluate_cascade.py`, `cascade_online.py` | `cascade_ood`, `cascade_ood_online` |
 
 ## 5. Method overview and implementation details
 
@@ -276,7 +278,7 @@ GitHub Actions runs both tests on every push (`.github/workflows/tests.yml`).
 - All results come from simulation. There is no over-the-air or hardware test bed.
 - The guarantee is **relative to WMMSE**, not to the global optimum of the non-convex sum-rate problem.
 - The guarantee is **marginal**, in expectation over the calibration draw. Per-regime validity needs the group-wise variant. Validity under shift is long-run only (Proposition 1), and requires audit feedback.
-- Runtimes were measured on a 2-core CPU and are for relative comparison only. The ensemble uses more multiply–accumulate operations than WMMSE (reported honestly in Table 9). The benefit is lower sequential depth and fewer WMMSE iterations.
+- Runtimes were measured on a 2-core CPU and are for relative comparison only. The ensemble uses more multiply–accumulate operations than WMMSE (Table S3). The benefit is lower sequential depth and fewer WMMSE iterations.
 
 ## 11. Citation
 
@@ -285,8 +287,8 @@ If you use this code, please cite the paper and the archived software (Zenodo DO
 ```bibtex
 @article{dalton2026crccascade,
   author  = {Dalton, G. Arul and Mani, S. V. J.},
-  title   = {Conformal Risk Controlled Cascades for Neural Power Allocation in Dense {6G} Subnetworks},
-  journal = {Manuscript submitted for publication},
+  title   = {Conformal Risk Controlled Cascades for Neural Power Allocation in Dense {6G} Mobile Subnetworks},
+  journal = {Mobile Networks and Applications (submitted)},
   year    = {2026}
 }
 

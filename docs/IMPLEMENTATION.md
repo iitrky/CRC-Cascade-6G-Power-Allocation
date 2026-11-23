@@ -25,7 +25,7 @@ Data splits are disjoint and independently generated:
 | test | 10,000 | 4 | reporting only |
 | OOD × 5 | 6,000 each | 50–54 | shift experiments |
 
-The resplit experiments (Tables 5, 10 and 11) pool calibration and test data, then redraw a random calibration/test partition 300 times. This is the exchangeable setting assumed by the guarantees.
+The resplit experiments (Tables 7, 8 and S1) pool calibration and test data, then redraw a random calibration/test partition 300 times. This is the exchangeable setting assumed by the guarantees.
 
 ## 2. Equation-to-code map
 
